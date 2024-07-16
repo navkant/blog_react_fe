@@ -38,7 +38,7 @@ const BlogCard = (props) => {
           <h1 className="text-4xl">{props.blogData.title}</h1>
           <h3>{dateMDY}</h3>
           <div className="mt-56">
-            <h3>Author</h3>
+            <h3>{props.blogData.author_name}</h3>
           </div>
         </div>
         <div className="flex items-center pr-10">

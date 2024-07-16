@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState("Login");
+  const [btnName, setBtnName] = useState(
+    localStorage.getItem("token") ? "Logout" : "Login"
+  );
 
   return (
     <div className="header flex justify-between bg-black">
@@ -10,6 +12,13 @@ const Header = () => {
         <Link>
           <h1 className="text-6xl text-white ">TechBlog</h1>
         </Link>
+        {localStorage.getItem("token") ? (
+          <Link to="/user-blogs">
+            <h1 className="p-7 text-white ">My Blogs</h1>
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className="menu">
@@ -23,7 +32,14 @@ const Header = () => {
             <button
               className="hover:bg-gray-100 bg-white text-black mx-8 rounded-lg"
               onClick={() => {
-                setBtnName(btnName === "Login" ? "Logout" : "Login");
+                if (btnName === "Logout") {
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("refresh_token");
+                  setBtnName("Login");
+                  location.href = "/";
+                } else {
+                  location.href = "/login";
+                }
               }}
             >
               {btnName}

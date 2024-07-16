@@ -7,8 +7,11 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import BlogContent from "./components/BlogContent";
 import About from "./components/About";
+import Login from "./components/Login";
+import UserBlogs from "./components/UserBlogs";
 
 const AppLayout = () => {
+  window.React1 = require("react");
   return (
     <div className="App">
       <Header />
@@ -34,6 +37,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/blogs/:blogId",
         element: <BlogContent />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/user-blogs",
+        element: <UserBlogs />,
       },
     ],
   },
