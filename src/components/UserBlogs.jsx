@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "./BlogCard";
+import getBaseUrl from "../utils/getBaseUrl";
 
 const UserBlogs = () => {
   const [listBlogs, setListOfBlogs] = useState([]);
@@ -12,7 +13,7 @@ const UserBlogs = () => {
   const fetchData = async () => {
     const access_token = localStorage.getItem("token");
     console.log(localStorage.getItem("token"));
-    const data = await fetch("http://127.0.0.1:8000/blogs/user/", {
+    const data = await fetch(getBaseUrl() + "/blogs/user/", {
       headers: { Authorization: "Bearer " + access_token },
     });
     const json = await data.json();

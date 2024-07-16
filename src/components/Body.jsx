@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import BlogCard, { withLatestLabel } from "./BlogCard";
 import { useState, useEffect } from "react";
+import getBaseUrl from "../utils/getBaseUrl";
 
 const BlogCardLatest = withLatestLabel(BlogCard);
 
@@ -13,7 +14,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("http://127.0.0.1:8000/blogs/");
+    const data = await fetch(getBaseUrl() + "/blogs/");
     const json = await data.json();
     setListOfBlogs(json.items);
   };

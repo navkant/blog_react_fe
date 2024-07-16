@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import getBaseUrl from "./getBaseUrl";
 
 const getAuthToken = async (user_name, pass_word) => {
-  data = await fetch("http://127.0.0.1:8000/api_token_auth/", {
+  data = await fetch(getBaseUrl() + "/api_token_auth/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
