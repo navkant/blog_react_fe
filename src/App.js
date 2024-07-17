@@ -11,7 +11,6 @@ import Login from "./components/Login";
 import UserBlogs from "./components/UserBlogs";
 
 const AppLayout = () => {
-  window.React1 = require("react");
   return (
     <div className="App">
       <Header />

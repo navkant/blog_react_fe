@@ -7,7 +7,7 @@ const getBlogContent = (blog_id) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); 
 
   const fetchData = async () => {
     const access_token = localStorage.getItem("token");

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import accessAuthToken from "../utils/accessAuthToken";
 
 const Header = () => {
   const [btnName, setBtnName] = useState(
     localStorage.getItem("token") ? "Logout" : "Login"
   );
+  console.log(accessAuthToken());
 
   return (
     <div className="header flex justify-between bg-black">
