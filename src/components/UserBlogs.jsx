@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "./BlogCard";
 import getBaseUrl from "../utils/getBaseUrl";
+import accessAuthToken from "../utils/accessAuthToken";
 
 const UserBlogs = () => {
   const [listBlogs, setListOfBlogs] = useState([]);
@@ -11,8 +12,7 @@ const UserBlogs = () => {
   }, []);
 
   const fetchData = async () => {
-    const access_token = localStorage.getItem("token");
-    console.log(localStorage.getItem("token"));
+    const access_token = accessAuthToken();
     const data = await fetch(getBaseUrl() + "/blogs/user/", {
       headers: { Authorization: "Bearer " + access_token },
     });
@@ -20,7 +20,7 @@ const UserBlogs = () => {
     setListOfBlogs(json.items);
   };
 
-  if (localStorage.getItem("token")) {
+  if (accessAuthToken()) {
     return (
       <div className="justify-center px-96 m-2">
         {listBlogs.map((blog) => (

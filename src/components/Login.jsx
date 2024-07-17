@@ -4,6 +4,7 @@ import getAuthToken from "../utils/getAuthToken";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState("");
 
   return (
     <div className="flex justify-center">
@@ -31,14 +32,19 @@ const Login = () => {
             setPassword(e.target.value);
           }}
         />
+        <h1>{formError}</h1>
         <br />
         <button
-          onClick={() => {
-            const authData = getAuthToken(userName, password);
+          onClick={async () => {
+            const authData = await getAuthToken(userName, password);
+            console.log(authData.status);
+            if (authData.status != 200) {
+              setFormError("Email or password is incorrect!");
+            }
           }}
           className="m-1 p-1 border"
         >
-          Submit
+          Login
         </button>
       </div>
     </div>

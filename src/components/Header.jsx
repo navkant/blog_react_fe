@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import accessAuthToken from "../utils/accessAuthToken";
+import removeAccessToken from "../utils/removeAccessToken";
 
 const Header = () => {
   const [btnName, setBtnName] = useState(
-    localStorage.getItem("token") ? "Logout" : "Login"
+    accessAuthToken() ? "Logout" : "Login"
   );
-  console.log(accessAuthToken());
 
   return (
     <div className="header flex justify-between bg-black">
@@ -14,7 +14,7 @@ const Header = () => {
         <Link>
           <h1 className="text-6xl text-white ">TechBlog</h1>
         </Link>
-        {localStorage.getItem("token") ? (
+        {accessAuthToken() ? (
           <Link to="/user-blogs">
             <h1 className="p-7 text-white ">My Blogs</h1>
           </Link>
@@ -35,8 +35,7 @@ const Header = () => {
               className="hover:bg-gray-100 bg-white text-black mx-8 rounded-lg"
               onClick={() => {
                 if (btnName === "Logout") {
-                  localStorage.removeItem("token");
-                  localStorage.removeItem("refresh_token");
+                  removeAccessToken();
                   setBtnName("Login");
                   location.href = "/";
                 } else {

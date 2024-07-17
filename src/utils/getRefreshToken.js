@@ -1,7 +1,6 @@
 import getBaseUrl from "./getBaseUrl";
 
-const refreshAuthTOken = async () => {
-  const refresh_token = localStorage.getItem("refresh_token");
+const refreshAccessToken = async (refresh_token) => {
   data = await fetch(getBaseUrl() + "/api/token/refresh/", {
     method: "POST",
     headers: {
@@ -11,11 +10,12 @@ const refreshAuthTOken = async () => {
   });
   if (data.status === 200) {
     const auth_data = await data.json();
-    localStorage.setItem("token", auth_data.access);
-    console.log(localStorage.getItem("token"));
+    const access_token = auth_data.access;
+    localStorage.setItem("token", access_token);
+    return access_token;
   } else {
     console.log("unknown response");
   }
 };
 
-export default refreshAuthTOken;
+export default refreshAccessToken;

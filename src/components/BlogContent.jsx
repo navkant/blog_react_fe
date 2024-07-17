@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import getBlogContent from "../utils/getBlogContent";
+import accessAuthToken from "../utils/accessAuthToken";
 
 const BlogContent = () => {
   var hash_map = {
@@ -18,7 +19,7 @@ const BlogContent = () => {
   };
   const params = useParams();
 
-  if (localStorage.getItem("token")) {
+  if (accessAuthToken()) {
     const blogContent = getBlogContent(params.blogId);
     let date = new Date(blogContent.created);
 

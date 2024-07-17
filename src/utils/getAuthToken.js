@@ -15,8 +15,9 @@ const getAuthToken = async (user_name, pass_word) => {
     localStorage.setItem("token", auth_token);
     localStorage.setItem("refresh_token", refresh_token);
     window.location.href = "/";
+    return auth_data;
   } else {
-    console.log("unknown response");
+    return data;
   }
 };
 
