@@ -7,10 +7,7 @@ const accessAuthToken = () => {
     const decoded_token = jwtDecode(access_token);
 
     const token_expires = new Date(decoded_token.exp * 1000);
-    console.log("expiry: ", token_expires);
-
     const curr_time = new Date();
-    console.log("current time: ", curr_time);
 
     if (token_expires < curr_time) {
       console.log("token expired");
@@ -19,7 +16,7 @@ const accessAuthToken = () => {
     }
     return localStorage.getItem("token");
   } else {
-    return "";
+    return localStorage.getItem("token");
   }
 };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import accessAuthToken from "../utils/accessAuthToken";
 import removeAccessToken from "../utils/removeAccessToken";
+import UserAvatar from "./UserAvatar";
 
 const Header = () => {
   const [btnName, setBtnName] = useState(
@@ -26,13 +27,22 @@ const Header = () => {
       <div className="menu">
         <ul className="flex m-4 p-4 text-white">
           <li className="px-2">first element</li>
-          <li className="px-2">second element</li>
           <li className="px-2">
             <Link to="/about">About</Link>
           </li>
+          {accessAuthToken() ? (
+            <li className="px-2">
+              <Link to="">
+                <UserAvatar />
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+
           <li className="px-2">
             <button
-              className="hover:bg-gray-100 bg-white text-black mx-8 rounded-lg"
+              className="hover:bg-gray-100 bg-white text-black px-3 rounded-lg"
               onClick={() => {
                 if (btnName === "Logout") {
                   removeAccessToken();

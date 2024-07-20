@@ -12,7 +12,6 @@ const getBlogContent = (blog_id) => {
 
   const fetchData = async () => {
     const access_token = accessAuthToken();
-    console.log("accesss_token: ", access_token);
     const data = await fetch(getBaseUrl() + "/blogs/" + blog_id + "/", {
       headers: { Authorization: "Bearer " + access_token },
     });

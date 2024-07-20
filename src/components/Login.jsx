@@ -43,6 +43,7 @@ const Login = () => {
           className="mx-28 px-4 py-2 border-b-2 border-t-2 border-l-2 border-r-2 border-black bg-gray-100 border-* rounded-lg hover:bg-gray-400 focus:outline-none"
           onClick={async () => {
             const authData = await getAuthToken(userName, password);
+            console.log("*******", authData.status);
             if (authData.status != 200) {
               setFormError("Email or password is incorrect!");
             }
