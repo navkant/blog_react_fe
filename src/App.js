@@ -6,7 +6,9 @@ import Error from "./components/error";
 // import Header from "./components/Header";
 import Header from "./components/Header_2";
 import Body from "./components/Body";
-import BlogContent from "./components/BlogContent";
+// import BlogContent from "./components/BlogContent";
+import BlogContent from "./components/BlogContent_2";
+
 import About from "./components/About";
 import Login from "./components/Login";
 import UserBlogs from "./components/UserBlogs";

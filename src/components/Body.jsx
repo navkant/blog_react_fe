@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-import BlogCard, { withLatestLabel } from "./BlogCard";
+import BlogCard, { withLatestLabel } from "./BlogCard_2";
 import { useState, useEffect } from "react";
 import getBaseUrl from "../utils/getBaseUrl";
 
@@ -20,11 +18,9 @@ const Body = () => {
   };
 
   return (
-    <div className="justify-center px-96 m-2">
+    <div className="">
       {listBlogs.map((blog) => (
-        <Link key={blog.id} to={"/blogs/" + blog.id}>
-          <BlogCard blogData={blog} />
-        </Link>
+        <BlogCard blogData={blog} />
       ))}
 
       {/* {listBlogs.map((blog) =>

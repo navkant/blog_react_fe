@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BlogCard from "./BlogCard";
+// import BlogCard from "./BlogCard";
+import BlogCard from "./BlogCard_2";
 import getBaseUrl from "../utils/getBaseUrl";
 import accessAuthToken from "../utils/accessAuthToken";
 
@@ -22,26 +23,20 @@ const UserBlogs = () => {
 
   if (accessAuthToken()) {
     return (
-      <div className="justify-center px-96 m-2">
+      <div className="">
         {listBlogs.map((blog) => (
           <Link key={blog.id} to={"/blogs/" + blog.id}>
             <BlogCard blogData={blog} />
           </Link>
         ))}
-
-        {/* {listBlogs.map((blog) =>
-          blog.is_latest ? (
-            <BlogCardLatest key={blog.id} blogData={blog} />
-          ) : (
-            <BlogCard key={blog.id} blogData={blog} />
-          )
-        )} */}
       </div>
     );
   } else {
     return (
-      <div>
-        <h1>Nothing to see here. Please login first to see your blogs</h1>
+      <div className="flex justify-center mx-40 my-5 bg-gray-100 hover:bg-gray-200 rounded-3xl">
+        <div className="m-4">
+          <h1 className="text-4xl">Please login to read full blog.</h1>
+        </div>
       </div>
     );
   }
