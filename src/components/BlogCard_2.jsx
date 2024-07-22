@@ -32,11 +32,7 @@ const BlogCard = (props) => {
           </div>
 
           <div className="w-64 m-16">
-            <img
-              className=""
-              src="https://icon-library.com/images/food-app-icon/food-app-icon-0.jpg"
-              alt=""
-            />
+            <img className="" src={props.blogData.image_url} alt="" />
           </div>
         </div>
       </Link>
@@ -64,11 +60,7 @@ const BlogCard = (props) => {
           </div>
 
           <div className="w-64 m-16">
-            <img
-              className=""
-              src="https://icon-library.com/images/food-app-icon/food-app-icon-0.jpg"
-              alt=""
-            />
+            <img className="" src={props.blogData.image_url} alt="" />
           </div>
         </div>
       </Link>
