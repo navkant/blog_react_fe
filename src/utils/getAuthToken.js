@@ -1,6 +1,8 @@
 import getBaseUrl from "./getBaseUrl";
+import getUserDetails from "./getUserDetails";
 
 const getAuthToken = async (user_name, pass_word) => {
+  console.log("get auth token called");
   data = await fetch(getBaseUrl() + "/api/token/", {
     method: "POST",
     headers: {
@@ -14,7 +16,6 @@ const getAuthToken = async (user_name, pass_word) => {
     const refresh_token = auth_data.refresh;
     localStorage.setItem("token", auth_token);
     localStorage.setItem("refresh_token", refresh_token);
-    window.location.href = "/";
     return auth_data;
   } else {
     return data;

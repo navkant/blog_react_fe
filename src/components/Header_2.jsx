@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import accessAuthToken from "../utils/accessAuthToken";
-import removeAccessToken from "../utils/removeAccessToken";
+import removeLocalData from "../utils/removeLocalData";
 import UserAvatar from "./UserAvatar";
 
 const Header = () => {
   const [btnName, setBtnName] = useState(
     accessAuthToken() ? "Logout" : "Login"
   );
-
+  console.log("header rendered");
   return (
     <div className="header flex bg-black justify-between text-white">
       <div className="flex my-1">
@@ -19,6 +19,9 @@ const Header = () => {
         </div>
       </div>
       <div className="flex m-2 ">
+        <div className="m-3">
+          <Link to="/editor">Editor</Link>
+        </div>
         {accessAuthToken() ? (
           <div className="m-3">
             <Link to="/user-blogs">
@@ -31,6 +34,7 @@ const Header = () => {
         <div className="m-3">
           <Link to="/about">About</Link>
         </div>
+
         {accessAuthToken() ? (
           <div className="m-1">
             <Link to="" className="">
@@ -45,7 +49,7 @@ const Header = () => {
             className="m-3 p-[2px] hover:bg-gray-100 bg-white text-black rounded-md"
             onClick={() => {
               if (btnName === "Logout") {
-                removeAccessToken();
+                removeLocalData();
                 setBtnName("Login");
                 location.href = "/";
               } else {

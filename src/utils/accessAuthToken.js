@@ -12,7 +12,8 @@ const accessAuthToken = () => {
     if (token_expires < curr_time) {
       console.log("token expired");
       const refresh_token = localStorage.getItem("refresh_token");
-      return refreshAccessToken(refresh_token);
+      refreshAccessToken(refresh_token);
+      return localStorage.getItem("token");
     }
     return localStorage.getItem("token");
   } else {

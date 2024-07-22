@@ -20,7 +20,7 @@ const Body = () => {
   return (
     <div className="">
       {listBlogs.map((blog) => (
-        <BlogCard blogData={blog} />
+        <BlogCard key={blog.id} blogData={blog} />
       ))}
 
       {/* {listBlogs.map((blog) =>
