@@ -1,31 +1,15 @@
 import { useParams } from "react-router";
 import getBlogContent from "../utils/getBlogContent";
 import accessAuthToken from "../utils/accessAuthToken";
+import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
 
 const BlogContent = () => {
-  var hash_map = {
-    1: "Jan",
-    2: "Feb",
-    3: "Mar",
-    4: "Apr",
-    5: "May",
-    6: "Jun",
-    7: "Jul",
-    8: "Aug",
-    9: "Sep",
-    10: "Oct",
-    11: "Nov",
-    12: "Dec",
-  };
   const params = useParams();
 
   if (accessAuthToken()) {
     const blogContent = getBlogContent(params.blogId);
-    let date = new Date(blogContent.created);
+    let dateMDY = getDateMonDDYYYY(blogContent.created);
 
-    let dateMDY = `${
-      hash_map[date.getMonth() + 1]
-    } ${date.getDate()}, ${date.getFullYear()}`;
     return (
       <div className="mx-40 my-5 bg-gray-100 hover:bg-gray-200 rounded-3xl">
         <div className="p-5">
