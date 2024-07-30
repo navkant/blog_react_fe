@@ -2,7 +2,7 @@ import BlogCard, { withLatestLabel } from "./BlogCard_2";
 import { useState, useEffect } from "react";
 import getBaseUrl from "../utils/getBaseUrl";
 
-const BlogCardLatest = withLatestLabel(BlogCard);
+// const BlogCardLatest = withLatestLabel(BlogCard);
 
 const Body = () => {
   const [listBlogs, setListOfBlogs] = useState([]);

@@ -23,6 +23,11 @@ const Editor = () => {
           }}
         ></textarea>
       </div>
+      <div className="m-2">
+        <button className=" px-2 border-2 rounded-md border-black focus:outline-none">
+          Update
+        </button>
+      </div>
     </div>
   );
 };

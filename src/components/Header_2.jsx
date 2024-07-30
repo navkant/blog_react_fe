@@ -18,10 +18,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="flex m-2 ">
-        <div className="m-3">
-          <Link to="/editor">Editor</Link>
-        </div>
+      <div className="nav-items flex m-2 ">
         {accessAuthToken() ? (
           <div className="m-3">
             <Link to="/user-blogs">
