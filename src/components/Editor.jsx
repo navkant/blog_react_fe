@@ -24,7 +24,12 @@ const Editor = () => {
         ></textarea>
       </div>
       <div className="m-2">
-        <button className=" px-2 border-2 rounded-md border-black focus:outline-none">
+        <button
+          className="px-2 border-2 rounded-md border-black focus:outline-none"
+          onClick={() => {
+            console.log("submit button clicked!");
+          }}
+        >
           Update
         </button>
       </div>
