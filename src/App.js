@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import BlogContent from "./components/BlogContent";
 import Editor from "./components/Editor";
+import NewBlog from "./components/NewBlog";
 import About from "./components/About";
 import Login from "./components/Login";
 import UserBlogs from "./components/UserBlogs";
@@ -49,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/editor",
         element: <Editor />,
+      },
+      {
+        path: "/create",
+        element: <NewBlog />,
       },
     ],
   },
