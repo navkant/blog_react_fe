@@ -1,6 +1,7 @@
 import { useLocation } from "react-router";
 import { useState } from "react";
 import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
+import updateBlogContent from "../utils/updateBlogContent";
 
 const Editor = () => {
   const location = useLocation();
@@ -26,8 +27,9 @@ const Editor = () => {
       <div className="m-2">
         <button
           className="px-2 border-2 rounded-md border-black focus:outline-none"
-          onClick={() => {
-            console.log("submit button clicked!");
+          onClick={async () => {
+            await updateBlogContent(data.id, blogContent);
+            location.href = "/blogs/" + data.id;
           }}
         >
           Update

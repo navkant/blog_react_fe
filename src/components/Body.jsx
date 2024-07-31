@@ -12,7 +12,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(getBaseUrl() + "/blogs/");
+    const data = await fetch(getBaseUrl() + "/v2/blogs/");
     const json = await data.json();
     setListOfBlogs(json.items);
   };

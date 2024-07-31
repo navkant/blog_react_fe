@@ -14,7 +14,7 @@ const UserBlogs = () => {
 
   const fetchData = async () => {
     const access_token = accessAuthToken();
-    const data = await fetch(getBaseUrl() + "/blogs/user/", {
+    const data = await fetch(getBaseUrl() + "/v2/blogs/user/", {
       headers: { Authorization: "Bearer " + access_token },
     });
     const json = await data.json();
