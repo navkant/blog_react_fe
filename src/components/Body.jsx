@@ -1,4 +1,4 @@
-import BlogCard, { withLatestLabel } from "./BlogCard_2";
+import BlogCard from "./BlogCard";
 import { useState, useEffect } from "react";
 import getBaseUrl from "../utils/getBaseUrl";
 
