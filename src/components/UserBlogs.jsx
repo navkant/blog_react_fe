@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import BlogCard from "./BlogCard";
-import BlogCard from "./BlogCard_2";
+import BlogCard from "./BlogCard";
 import getBaseUrl from "../utils/getBaseUrl";
 import accessAuthToken from "../utils/accessAuthToken";
 

@@ -1,62 +1,62 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import accessAuthToken from "../utils/accessAuthToken";
-import removeAccessToken from "../utils/removeAccessToken";
+import removeLocalData from "../utils/removeLocalData";
 import UserAvatar from "./UserAvatar";
 
 const Header = () => {
   const [btnName, setBtnName] = useState(
     accessAuthToken() ? "Logout" : "Login"
   );
-
+  console.log("header rendered");
   return (
-    <div className="header flex justify-between bg-black">
-      <div className="log flex justify-around m-1 p-2 ">
-        <Link>
-          <h1 className="text-6xl text-white ">TechBlog</h1>
-        </Link>
-        {accessAuthToken() ? (
-          <Link to="/user-blogs">
-            <h1 className="p-7 text-white ">My Blogs</h1>
+    <div className="header flex bg-black justify-between text-white">
+      <div className="flex my-1">
+        <div className="logo flex">
+          <Link>
+            <h1 className="text-6xl">TechBlog</h1>
           </Link>
-        ) : (
-          ""
-        )}
+        </div>
       </div>
+      <div className="nav-items flex m-2 ">
+        {accessAuthToken() ? (
+          <div className="m-3">
+            <Link to="/user-blogs">
+              <h1 className="">My Blogs</h1>
+            </Link>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className="m-3">
+          <Link to="/about">About</Link>
+        </div>
 
-      <div className="menu">
-        <ul className="flex m-4 p-4 text-white">
-          <li className="px-2">first element</li>
-          <li className="px-2">
-            <Link to="/about">About</Link>
-          </li>
-          {accessAuthToken() ? (
-            <li className="px-2">
-              <Link to="">
-                <UserAvatar />
-              </Link>
-            </li>
-          ) : (
-            ""
-          )}
-
-          <li className="px-2">
-            <button
-              className="hover:bg-gray-100 bg-white text-black px-3 rounded-lg"
-              onClick={() => {
-                if (btnName === "Logout") {
-                  removeAccessToken();
-                  setBtnName("Login");
-                  location.href = "/";
-                } else {
-                  location.href = "/login";
-                }
-              }}
-            >
-              {btnName}
-            </button>
-          </li>
-        </ul>
+        {accessAuthToken() ? (
+          <div className="m-1">
+            <Link to="" className="">
+              <UserAvatar />
+            </Link>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className="">
+          <button
+            className="m-3 p-[2px] hover:bg-gray-100 bg-white text-black rounded-md"
+            onClick={() => {
+              if (btnName === "Logout") {
+                removeLocalData();
+                setBtnName("Login");
+                location.href = "/";
+              } else {
+                location.href = "/login";
+              }
+            }}
+          >
+            {btnName}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -3,11 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Error from "./components/error";
-// import Header from "./components/Header";
-import Header from "./components/Header_2";
+import Header from "./components/Header";
 import Body from "./components/Body";
-// import BlogContent from "./components/BlogContent";
-import BlogContent from "./components/BlogContent_2";
+import BlogContent from "./components/BlogContent";
 import Editor from "./components/Editor";
 import About from "./components/About";
 import Login from "./components/Login";
