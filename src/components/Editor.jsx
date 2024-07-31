@@ -29,7 +29,7 @@ const Editor = () => {
           className="px-2 border-2 rounded-md border-black focus:outline-none"
           onClick={async () => {
             await updateBlogContent(data.id, blogContent);
-            location.href = "/blogs/" + data.id;
+            window.location.href = "/blogs/" + data.id;
           }}
         >
           Update
