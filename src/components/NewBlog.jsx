@@ -1,11 +1,12 @@
-import { useLocation } from "react-router";
 import { useState } from "react";
 import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
-import updateBlogContent from "../utils/updateBlogContent";
+import createBlog from "../utils/createBlog";
+import accessUserDetails from "../utils/accessUserDetails";
 
 const NewBlog = () => {
-  const [blogTitle, setBlogTitle] = useState("Title of your blog.");
-  const [blogContent, setBlogContent] = useState("Write your blog here.");
+  const [blogTitle, setBlogTitle] = useState("Title your blog");
+  const [blogContent, setBlogContent] = useState("Write your blog here");
+  const userDetails = accessUserDetails();
 
   return (
     <div className="p-8">
@@ -41,8 +42,8 @@ const NewBlog = () => {
         <button
           className="px-2 border-2 rounded-md border-black focus:outline-none"
           onClick={async () => {
-            await updateBlogContent(data.id, blogContent);
-            window.location.href = "/blogs/" + data.id;
+            await createBlog(userDetails.user_id, blogTitle, blogContent);
+            window.location.href = "/";
           }}
         >
           Submit

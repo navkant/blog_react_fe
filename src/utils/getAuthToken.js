@@ -1,5 +1,4 @@
 import getBaseUrl from "./getBaseUrl";
-import getUserDetails from "./getUserDetails";
 
 const getAuthToken = async (user_name, pass_word) => {
   console.log("get auth token called");
