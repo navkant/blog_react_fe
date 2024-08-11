@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "parcel -p 3000 src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/index.html"
   },
   "author": "",
   "license": "ISC",
