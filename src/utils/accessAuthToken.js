@@ -10,14 +10,14 @@ const accessAuthToken = () => {
     const curr_time = new Date();
 
     if (token_expires < curr_time) {
-      console.log("token expired");
+      console.log("token expired, making api call to fetch token");
       const refresh_token = localStorage.getItem("refresh_token");
       refreshAccessToken(refresh_token);
       return localStorage.getItem("token");
     }
     return localStorage.getItem("token");
   } else {
-    return localStorage.getItem("token");
+    return "";
   }
 };
 

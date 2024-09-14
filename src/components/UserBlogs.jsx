@@ -6,13 +6,14 @@ import accessAuthToken from "../utils/accessAuthToken";
 
 const UserBlogs = () => {
   const [listBlogs, setListOfBlogs] = useState([]);
+  var accessToken = accessAuthToken();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const access_token = accessAuthToken();
+    const access_token = accessToken;
     const data = await fetch(getBaseUrl() + "/v2/blogs/user/", {
       headers: { Authorization: "Bearer " + access_token },
     });
@@ -20,7 +21,7 @@ const UserBlogs = () => {
     setListOfBlogs(json.items);
   };
 
-  if (accessAuthToken()) {
+  if (accessToken) {
     return (
       <div className="">
         {listBlogs.map((blog) => (

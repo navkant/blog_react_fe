@@ -5,10 +5,10 @@ import removeLocalData from "../utils/removeLocalData";
 import UserAvatar from "./UserAvatar";
 
 const Header = () => {
-  const [btnName, setBtnName] = useState(
-    accessAuthToken() ? "Logout" : "Login"
-  );
   console.log("header rendered");
+  var accessToken = accessAuthToken();
+  const [btnName, setBtnName] = useState(accessToken ? "Logout" : "Login");
+
   return (
     <div className="header flex bg-black justify-between text-white">
       <div className="flex my-1">
@@ -24,7 +24,7 @@ const Header = () => {
             <h1>Create</h1>
           </Link>
         </div>
-        {accessAuthToken() ? (
+        {accessToken ? (
           <div className="m-3">
             <Link to="/user-blogs">
               <h1 className="">My Blogs</h1>
@@ -37,7 +37,7 @@ const Header = () => {
           <Link to="/about">About</Link>
         </div>
 
-        {accessAuthToken() ? (
+        {accessToken ? (
           <div className="m-1">
             <Link to="" className="">
               <UserAvatar />

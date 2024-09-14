@@ -4,9 +4,10 @@ import accessAuthToken from "../utils/accessAuthToken";
 import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
 
 const BlogContent = () => {
+  var accessToken = accessAuthToken();
   const params = useParams();
 
-  if (accessAuthToken()) {
+  if (accessToken) {
     const blogContent = getBlogContent(params.blogId);
     let dateMDY = getDateMonDDYYYY(blogContent.created);
 

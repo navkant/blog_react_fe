@@ -4,6 +4,8 @@ import accessAuthToken from "../utils/accessAuthToken";
 import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
 
 const BlogCard = (props) => {
+  var accessToken = accessAuthToken();
+
   let dateMDY = getDateMonDDYYYY(props.blogData.created);
 
   if (props.blogData.is_latest) {
@@ -36,7 +38,7 @@ const BlogCard = (props) => {
 
         <div>
           <div className="flex justify-end m-2">
-            {accessAuthToken() &&
+            {accessToken &&
             accessUserDetails().user_id === props.blogData.author_id ? (
               <div className="m-2 p-1 rounded-2xl bg-gray-300 hover:bg-gray-400">
                 <Link to="/editor" state={props.blogData}>
@@ -98,7 +100,7 @@ const BlogCard = (props) => {
 
           <div>
             <div className="flex justify-end m-2">
-              {accessAuthToken() &&
+              {accessToken &&
               accessUserDetails().user_id === props.blogData.author_id ? (
                 <div className="m-2 p-1 rounded-2xl bg-gray-300 hover:bg-gray-400">
                   <Link to="/editor" state={props.blogData}>

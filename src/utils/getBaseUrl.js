@@ -1,10 +1,10 @@
-import { LOCAL_URL } from "./constants";
+import { LOCAL_URL, DEV_URL } from "./constants";
 
 const getBaseUrl = () => {
   if (process.env.RUNNING_ENV === "local") {
     return LOCAL_URL;
   } else {
-    return LOCAL_URL;
+    return DEV_URL;
   }
 };
 
