@@ -8,6 +8,7 @@ const Body = () => {
   const [listBlogs, setListOfBlogs] = useState([]);
 
   useEffect(() => {
+    console.log("useEffect called");
     fetchData();
   }, []);
 
@@ -16,12 +17,26 @@ const Body = () => {
     const json = await data.json();
     setListOfBlogs(json.items);
   };
-
+  console.log("Body rendered");
   return (
     <div className="">
-      {listBlogs.map((blog) => (
-        <BlogCard key={blog.id} blogData={blog} />
-      ))}
+      <div className="flex justify-between m-auto my-5 w-3/4">
+        <div
+          className="px-2 border-2 rounded-md border-black focus:outline-none"
+          onClick={() => {
+            console.log("top rated clicked");
+            setListOfBlogs(listBlogs.filter((blog) => blog.rating >= 2.5));
+          }}
+        >
+          <button>Top Rated</button>
+        </div>
+      </div>
+
+      <div>
+        {listBlogs.map((blog) => (
+          <BlogCard key={blog.id} blogData={blog} />
+        ))}
+      </div>
 
       {/* {listBlogs.map((blog) =>
         blog.is_latest ? (

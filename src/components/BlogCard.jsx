@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import accessUserDetails from "../utils/accessUserDetails";
 import accessAuthToken from "../utils/accessAuthToken";
 import getDateMonDDYYYY from "../utils/getDateMonDDYYYY";
+import { HiStar } from "react-icons/hi";
 
 const BlogCard = (props) => {
   var accessToken = accessAuthToken();
@@ -27,6 +28,14 @@ const BlogCard = (props) => {
 
             <div className="m-1">
               <h3>{props.blogData.author_name}</h3>
+            </div>
+            <div className="m-1 flex">
+              <div>
+                <h3>{props.blogData.rating}</h3>
+              </div>
+              <div className="p-1">
+                <HiStar />
+              </div>
             </div>
           </div>
           <div className="flex">
@@ -89,6 +98,14 @@ const BlogCard = (props) => {
 
               <div className="m-1">
                 <h3>{props.blogData.author_name}</h3>
+              </div>
+              <div className="m-1 flex">
+                <div>
+                  <h3>{props.blogData.rating}</h3>
+                </div>
+                <div className="p-1">
+                  <HiStar />
+                </div>
               </div>
             </div>
             <div className="flex">
